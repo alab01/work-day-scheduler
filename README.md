@@ -6,4 +6,4 @@
 
 ## ![Scheduler Img] (assets/img/schedule-project-img.png)
 
-## [Github Live link]:
+## [Github Live link]: https://alab01.github.io/work-day-scheduler/
