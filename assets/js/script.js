@@ -43,7 +43,6 @@ function createPlanner(start, end) {
         plan.appendChild(saveBtn);
 
         plansContainer.appendChild(plan);
-
     }
 }
 
