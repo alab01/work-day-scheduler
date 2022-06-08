@@ -18,7 +18,9 @@ textarea {
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 8px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .description {
