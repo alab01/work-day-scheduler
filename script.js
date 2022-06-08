@@ -20,17 +20,23 @@ function createPlanner(start, end) {
             $(hr).text(stHour + "PM");
 
         var task = document.createElement("textarea");
-        task.setAttribute("class", "task col-10 future");
-        task.setAttribute("class", "task col-10 present");
-        task.setAttribute("class", "task col-10 past");
+        if (hour > currentHour)
+            task.setAttribute("class", "task col-10 future");
+        else if (hour == currentHour)
+            task.setAttribute("class", "task col-10 present");
+        else
+            task.setAttribute("class", "task col-10 past");
         task.setAttribute("id", "task-" + stHour);
-
+        var taskVal = localStorage.getItem(stHour);
+        if (taskVal != null)
+            $(task).val(taskVal);
 
         var saveBtn = document.createElement("div");
         $(saveBtn).text("SAVE");
         saveBtn.setAttribute("class", "save-btn col-1 saveBtn");
         saveBtn.setAttribute("id", "save-btn-" + stHour);
         saveBtn.setAttribute("targetId", stHour);
+        saveBtn.addEventListener("click", onSaveBtnClick);
 
         plan.appendChild(hr);
         plan.appendChild(task);
@@ -41,6 +47,12 @@ function createPlanner(start, end) {
     }
 }
 
+function onSaveBtnClick(event) {
+    var targetId = event.target.getAttribute("targetId");
+    var taskVal = $("#task-" + targetId).val();
+    localStorage.setItem(targetId, taskVal);
+    console.log(localStorage);
+}
 
 function getStandardHour(militaryHour) {
     var output = militaryHour % 12;
