@@ -12,6 +12,28 @@ function createPlanner(start, end) {
         plan.setAttribute("class", "plan row");
         plan.setAttribute("id", "plan-" + stHour);
 
+        var hr = document.createElement("div");
+        hr.setAttribute("class", "hour col-1");
+        hr.setAttribute("id", "hour-" + stHour);
+        
+        var task = document.createElement("textarea");
+        task.setAttribute("class", "task col-10 future");
+        task.setAttribute("class", "task col-10 present");
+        task.setAttribute("class", "task col-10 past");
+        task.setAttribute("id", "task-" + stHour);
+
+        var saveBtn = document.createElement("div");
+        saveBtn.setAttribute("class", "save-btn col-1 saveBtn");
+        saveBtn.setAttribute("id", "save-btn-" + stHour);
+        saveBtn.setAttribute("targetId", stHour);
+
+        plan.appendChild(hr);
+        plan.appendChild(task);
+        plan.appendChild(saveBtn);
+
+        plansContainer.appendChild(plan);
+
+
     }}
 
     createPlanner();
